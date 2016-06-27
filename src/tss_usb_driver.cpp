@@ -6,6 +6,7 @@
 #include <sensor_msgs/Temperature.h>
 #include <sensor_msgs/MagneticField.h>
 #include <ros/time.h>
+#include <unistd.h>
 #include <tf/tf.h>
 
 namespace yei_tss_usb
@@ -108,9 +109,9 @@ namespace yei_tss_usb
 
 	bool TSSUSB::TSSOpenNoLock( )
 	{
-		if( tssd >= 0 )
+		if( tssd >= 0 ) 
 			return true;
-
+		sleep(1);
 		tssd = tss_usb_open( port.c_str( ) );
 		if( tssd < 0 )
 		{
@@ -150,8 +151,9 @@ namespace yei_tss_usb
 		reset_srv = nh_priv.advertiseService( "reset", &TSSUSB::ResetCB, this );
 		factory_srv = nh_priv.advertiseService( "restore_factory_settings", &TSSUSB::FactoryCB, this );
 		led_color_srv = nh_priv.advertiseService( "set_led_color", &TSSUSB::LEDColorCB, this );
-
+sleep(1);
 		return true;
+
 	}
 
 	void TSSUSB::TSSClose( )
