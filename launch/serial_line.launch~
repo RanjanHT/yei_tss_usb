@@ -1,0 +1,6 @@
+<launch>
+	<node name="serial_line" pkg="serial_line" type="serialLineNode" output="screen">
+		<param name="device" type="str" value="/dev/ttyACM0" />
+		<param name="baud" type="int" value="115200" />
+	</node>
+</launch>

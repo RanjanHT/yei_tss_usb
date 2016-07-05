@@ -70,7 +70,7 @@ add_library(tss_usb_driver
 
 ## Declare a cpp executable
 add_executable(tss_usb_node src/tss_usb_node.cpp)
-##add_executable(tss_usb_fw_updater src/tss_usb_fw_updater.c)
+add_executable(tss_usb_fw_updater src/tss_usb_fw_updater.c)
 
 ## Add dependencies to the executable
 add_dependencies(tss_usb_driver ${PROJECT_NAME}_gencpp)
@@ -84,10 +84,10 @@ target_link_libraries(tss_usb_node
   tss_usb_driver
   ${catkin_LIBRARIES}
 )
-#target_link_libraries(tss_usb_fw_updater
-#  tss_usb
-#  ${LIBXML2_LIBRARIES}
-#)
+target_link_libraries(tss_usb_fw_updater
+  tss_usb
+  ${LIBXML2_LIBRARIES}
+)
 
 #############
 ## Install ##

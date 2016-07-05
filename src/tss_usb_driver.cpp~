@@ -113,9 +113,11 @@ namespace yei_tss_usb
 			return true;
 		sleep(1);
 		tssd = tss_usb_open( port.c_str( ) );
+sleep(1);
 		if( tssd < 0 )
 		{
 			open_failure_count++;
+sleep(1);
 			return false;
 		}
 
@@ -123,6 +125,7 @@ namespace yei_tss_usb
 		{
 			TSSCloseNoLock( );
 			io_failure_count++;
+sleep(1);
 			return false;
 		}
 
@@ -131,6 +134,7 @@ namespace yei_tss_usb
 		{
 			TSSCloseNoLock( );
 			io_failure_count++;
+sleep(1);
 			return false;
 		}
 
@@ -138,6 +142,7 @@ namespace yei_tss_usb
 		{
 			TSSCloseNoLock( );
 			io_failure_count++;
+sleep(1);
 			return false;
 		}
 
